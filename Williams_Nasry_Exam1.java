@@ -31,7 +31,7 @@ public class Williams_Nasry_Exam1 {
 //PPT
                 if (opcion == 3) {
                     boolean juego = true;
-              
+
                     while (juego) {
                         System.out.println("***Bienvenido a el Juego de piedra, papel y tijera! ***");
                         System.out.println("-- Seleccion de Opcion --");
@@ -43,7 +43,7 @@ public class Williams_Nasry_Exam1 {
                             ppt = lea.nextLine().toLowerCase();
                         }
 
-                       int pptpc = random.nextInt(3);
+                        int pptpc = random.nextInt(3);
                         String computadora = "";
                         if (pptpc == 0) {
                             computadora = "piedra";
@@ -75,15 +75,37 @@ public class Williams_Nasry_Exam1 {
                 }
 // Adivinar
                 if (opcion == 4) {
-                    int maxintentos = 10;
+                    int numerorandom = random.nextInt(100);
+                    int maxintentos = 10, intentos = 0, intentoUser = 0;
+                    boolean adivino = false;
+
                     System.out.println("*** Adivinar ***");
-                  
+                    System.out.println("Adivina un numero del 1-100, tienes 10 intentos para lograrlo.");
+                    while (intentos < maxintentos) {
+                        System.out.println("Intento #" + (intentos + 1) + ": ");
+                        intentoUser = lea.nextInt();
+                        intentos++;
+                      
+                        if (intentoUser == numerorandom) {
+                            System.out.println("Adivinaste! Tu total de intentos es de: " + intentos);
+                            adivino = true;
+                        } else if (intentoUser > numerorandom) {
+                            System.out.println("El numero por adivinar es menor.");
+                        } else {
+                            System.out.println("El numero por adivinar es mayor.");
+                        }
+
+                    }
                     
-                    
+                    if (!adivino){
+                        System.out.println("Ya no hay intentos disponibles, el numero era: "+numerorandom);
+          }
+
                 }
 
                 if (opcion == 5) {
                     System.out.println("Salida...");
+                    System.exit(0);
                 }
 
             }
