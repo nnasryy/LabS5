@@ -1,3 +1,94 @@
+
+import java.util.Scanner;
+import java.util.Random;
+
 public class Williams_Nasry_Exam1 {
-    
+
+    public static void main(String[] args) {
+        Scanner lea = new Scanner(System.in);
+        Random random = new Random();
+        int opcion = 0;
+        String ppt = "";
+        do {
+            System.out.println("***Menu de Opciones ***");
+            System.out.println("1. Piramide");
+            System.out.println("2. Clave");
+            System.out.println("3. Juego de piedra, papel o tijera");
+            System.out.println("4. Adivinar");
+            System.out.println("5. Salida del Sistema");
+            opcion = lea.nextInt();
+//Piramide
+            if (opcion >= 1 && opcion < 6) {
+                if (opcion == 1) {
+                    System.out.println("***Piramide***");
+
+                }
+                //Clave
+                if (opcion == 2) {
+                    System.out.println("***Clave***");
+
+                }
+//PPT
+                if (opcion == 3) {
+                    boolean juego = true;
+              
+                    while (juego) {
+                        System.out.println("***Bienvenido a el Juego de piedra, papel y tijera! ***");
+                        System.out.println("-- Seleccion de Opcion --");
+                        System.out.print("(piedra, papel, o tijera):");
+                        ppt = lea.nextLine().toLowerCase();
+
+                        while (!ppt.equals("piedra") && !ppt.equals("papel") && !ppt.equals("tijera")) {
+                            System.out.println("Opcion ingresada no valida, Escriba piedra, papel, o tijera: ");
+                            ppt = lea.nextLine().toLowerCase();
+                        }
+
+                       int pptpc = random.nextInt(3);
+                        String computadora = "";
+                        if (pptpc == 0) {
+                            computadora = "piedra";
+                        } else if (pptpc == 1) {
+                            computadora = "papel";
+                        } else {
+                            computadora = "tijera";
+                        }
+
+                        System.out.println("La computadora eligio = " + computadora);
+
+                        if (ppt.equals(computadora)) {
+                            System.out.println("Hubo un empate.");
+                        } else if ((ppt.equals("piedra") && computadora.equals("tijera"))
+                                || (ppt.equals("papel") && computadora.equals("piedra"))
+                                || (ppt.equals("tijera") && computadora.equals("papel"))) {
+                            System.out.println("Felicidades, ganaste!");
+                        } else {
+                            System.out.println("La computadora gana!");
+                        }
+
+                        System.out.println("Quiere jugar nuevamente?");
+                        System.out.print("Ingrese si o no : ");
+                        String siono = lea.nextLine().toLowerCase();
+                        if (!siono.equals("si")) {
+                            juego = false;
+                        }
+                    }
+                }
+// Adivinar
+                if (opcion == 4) {
+                    int maxintentos = 10;
+                    System.out.println("*** Adivinar ***");
+                  
+                    
+                    
+                }
+
+                if (opcion == 5) {
+                    System.out.println("Salida...");
+                }
+
+            }
+
+        } while (opcion != 5);
+
+    }
 }
