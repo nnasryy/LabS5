@@ -17,17 +17,43 @@ public class Williams_Nasry_Exam1 {
             System.out.println("4. Adivinar");
             System.out.println("5. Salida del Sistema");
             opcion = lea.nextInt();
+            lea.nextLine();
 //Piramide
             if (opcion >= 1 && opcion < 6) {
                 if (opcion == 1) {
                     System.out.println("***Piramide***");
+                    System.out.println("Ingrese un numero para la piramide: ");
+                    int filas = lea.nextInt();
+                    
+                    
+                    
 
                 }
                 //Clave
-                if (opcion == 2) {
-                    System.out.println("***Clave***");
+               if (opcion == 2) {
+    String mensajeCifrado = "";
+    System.out.println("***Clave***");
+    System.out.println("Ingrese un mensaje para cifrar:");
+    String mensaje = lea.nextLine();
 
-                }
+    for (int i = 0; i < mensaje.length(); i++) {
+        char letra = mensaje.charAt(i);
+
+        if (letra >= 'a' && letra <= 'z') {
+            char invertida = (char) ('z' - (letra - 'a'));
+            mensajeCifrado += invertida;
+        } else if (letra >= 'A' && letra <= 'Z') {
+            char invertida = (char) ('Z' - (letra - 'A'));
+            mensajeCifrado += invertida;
+        } else {
+            mensajeCifrado += letra;
+        }
+    }
+
+    System.out.println("Mensaje Cifrado :" + mensajeCifrado);
+    System.out.println("Mensaje Desifrado: " + mensaje);
+}
+
 //PPT
                 if (opcion == 3) {
                     boolean juego = true;
@@ -85,7 +111,7 @@ public class Williams_Nasry_Exam1 {
                         System.out.println("Intento #" + (intentos + 1) + ": ");
                         intentoUser = lea.nextInt();
                         intentos++;
-                      
+
                         if (intentoUser == numerorandom) {
                             System.out.println("Adivinaste! Tu total de intentos es de: " + intentos);
                             adivino = true;
@@ -96,21 +122,21 @@ public class Williams_Nasry_Exam1 {
                         }
 
                     }
-                    
-                    if (!adivino){
-                        System.out.println("Ya no hay intentos disponibles, el numero era: "+numerorandom);
-          }
+
+                    if (!adivino) {
+                        System.out.println("Ya no hay intentos disponibles, el numero era: " + numerorandom);
+                    }
 
                 }
 
                 if (opcion == 5) {
                     System.out.println("Salida...");
-                    System.exit(0);
+                 
                 }
 
             }
 
         } while (opcion != 5);
-
+   System.exit(0);
     }
 }
